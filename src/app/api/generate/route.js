@@ -11,11 +11,12 @@ export async function POST(req, res) {
 
     // Retrieve the data we receive as part of the request body
     const data = await req.json();
-    const recipeName = data.recipeName; // Assuming recipeName is passed in the body
-    console.log(recipeName);
+    const recipeName = data.recipeName; 
+    const language = data.language; 
+    console.log(recipeName,language);
     // Pass the prompt to the model and retrieve the output in JSON format
     const result = await model.generateContent(
-      `Generate a Short recipe for ${recipeName} in JSON format with these fields: 
+      `Generate a Short recipe in ${language} language for the dish ${recipeName} in JSON format with these fields: 
           { 
             "recipename": "Recipe Name",
             "ingredients": ["ingredient1", "ingredient2", ...],
@@ -24,8 +25,8 @@ export async function POST(req, res) {
           }`
     );
 
-    const response = await result.response;
-    let output = await response.text();
+    const response = result.response;
+    let output = response.text();
     console.log(output);
 
     let generatedData;

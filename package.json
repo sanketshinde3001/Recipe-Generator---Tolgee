@@ -19,7 +19,8 @@
     "next": "14.2.13",
     "next-intl": "3.19.4",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "react-toastify": "^10.0.6"
   },
   "devDependencies": {
     "@tolgee/cli": "^2.2.0",

@@ -17,6 +17,7 @@ export const Navbar = async ({ children }: React.PropsWithChildren) => {
           </div>
         </div>
         <div className="flex items-center space-x-4">
+          <span className='max-sm:hidden'>{t('select-lang')}</span>
           <LangSelector />
         </div>
       </div>

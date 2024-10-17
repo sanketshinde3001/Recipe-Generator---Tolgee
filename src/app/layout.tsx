@@ -1,5 +1,11 @@
 import { ReactNode } from 'react';
 import './style.css';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Recipe Generator",
+  description: "Created by Sanket shinde",
+};
 
 type Props = {
   children: ReactNode;

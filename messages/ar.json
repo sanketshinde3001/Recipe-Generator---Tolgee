@@ -1,4 +1,11 @@
 {
   "app-title": "مولد الوصفات",
-  "input-text": "اسم الطبق"
+  "close-button": "أغلق",
+  "delete-button": "حذف",
+  "ingredients-title": "المكونات",
+  "input-text": "اسم الطبق",
+  "instructions-title": "تعليمات",
+  "select-lang": "اختر اللغة",
+  "tips-title": "نصائح",
+  "view-button": "منظر"
 }

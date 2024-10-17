@@ -2,6 +2,9 @@ import { getTranslate } from '@/tolgee/server';
 import Recipes from './Recipes';
 import { Navbar } from '@/components/Navbar';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default async function IndexPage() {
   const t = await getTranslate();
 
@@ -13,6 +16,7 @@ export default async function IndexPage() {
           <Recipes />
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 }
