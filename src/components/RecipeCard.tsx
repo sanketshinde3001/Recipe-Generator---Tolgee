@@ -21,7 +21,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onClick, onDelete }) =>
       <div>
         <h2 className="text-2xl font-bold mb-3 text-white">{recipe.name}</h2>
         <p className="text-white mb-4">
-          <strong>Ingredients:</strong> {recipe.ingredients.slice(0, 3).join(", ")}...
+          <strong>{t('ingredients-title')}:</strong> {recipe.ingredients.slice(0, 3).join(", ")}...
         </p>
       </div>
 

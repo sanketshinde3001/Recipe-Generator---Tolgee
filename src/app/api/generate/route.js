@@ -11,19 +11,31 @@ export async function POST(req, res) {
 
     // Retrieve the data we receive as part of the request body
     const data = await req.json();
-    const recipeName = data.recipeName; 
-    const language = data.language; 
-    console.log(recipeName,language);
-    // Pass the prompt to the model and retrieve the output in JSON format
-    const result = await model.generateContent(
-      `Generate a Short recipe in ${language} language for the dish ${recipeName} in JSON format with these fields: 
+    const recipeName = data.recipeName;
+    const language = data.language;
+    console.log(recipeName, language);
+    let prompt = "";
+    const prompt1 = `Generate a Short recipe in ${language} language for the dish ${recipeName} in JSON format with these fields: 
           { 
             "recipename": "Recipe Name",
             "ingredients": ["ingredient1", "ingredient2", ...],
             "instructions": ["Step 1",\n "Step 2",\n ...],
             "tips": ["Tip 1",\n "Tip 2",\n ...]
-          }`
-    );
+          }`;
+    const prompt2 = `Generate a Random Short recipe in ${language} language for a well-known dish ensure it is not repeated.in JSON format with these fields: 
+          { 
+            "recipename": "Recipe Name",
+            "ingredients": ["ingredient1", "ingredient2", ...],
+            "instructions": ["Step 1",\n "Step 2",\n ...],
+            "tips": ["Tip 1",\n "Tip 2",\n ...]
+          }`;
+    if (recipeName == "Random") {
+      prompt = prompt2;
+    } else {
+      prompt = prompt1;
+    }
+    // Pass the prompt to the model and retrieve the output in JSON format
+    const result = await model.generateContent(prompt);
 
     const response = result.response;
     let output = response.text();
@@ -42,7 +54,7 @@ export async function POST(req, res) {
         error: "Failed to generate recipe in proper JSON format.",
       });
     }
- console.log(generatedData)
+    console.log(generatedData);
     if (
       typeof generatedData.recipename !== "string" ||
       !Array.isArray(generatedData.ingredients) ||
@@ -54,7 +66,7 @@ export async function POST(req, res) {
           "Generated recipe did not have the required fields or structure.",
       });
     }
-   
+
     // Send the structured JSON response to the frontend
     return NextResponse.json({
       recipename: generatedData.recipename,
