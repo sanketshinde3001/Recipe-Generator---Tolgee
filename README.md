@@ -1,3 +1,9 @@
+# Random Recipe Generator with Tolgee
+[<img src="https://raw.githubusercontent.com/tolgee/documentation/main/tolgee_logo_text.svg" alt="Tolgee" width="100" />](https://tolgee.io)
+
+### [Live Website](https://recipe-generator-tolgee.vercel.app/)
+### [Dev.to Blog Link](https://dev.to/sanketshinde/random-recipe-generator-with-tolgee-2di5)
+##
 Here i used `tolgee` with `next.js` app router.
 based on `next14` app folder with `tolgee` and `next-intl` package.
 
